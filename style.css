@@ -1,0 +1,815 @@
+/* Добавляем в начало файла стили для снега */
+.snow-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Улучшенная анимация снега */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.snowflake {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: snowfall linear infinite;
+    filter: blur(1px);
+}
+
+:root {
+    --primary: #6B46C1;
+    --primary-dark: #4C3575;
+    --secondary: #9F7AEA;
+    --accent: #B794F4;
+    --background: #1A202C;
+    --text: #E2E8F0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Обновленные стили для контента */
+.content {
+    position: relative;
+    z-index: 3;
+    background: rgba(26, 32, 44, 0.9);
+    padding: 3rem;
+    border-radius: 30px;
+    max-width: 1200px;
+    width: 95%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 50px rgba(107, 70, 193, 0.5);
+    border: 2px solid rgba(183, 148, 244, 0.3);
+    transform: scale(1);
+    transition: transform 0.5s ease;
+}
+
+.slide-content {
+    margin-top: 2rem;
+}
+
+/* Стили для изображения артиста */
+.artist-image {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.artist-image:hover .main-image {
+    transform: scale(1.1);
+}
+
+/* Стили для полноэкранных изображений */
+.fullscreen-image {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fullscreen-image:hover .full-img {
+    transform: scale(1.05);
+}
+
+/* Неоновые заголовки */
+h1, h2, h3 {
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+        0 0 10px rgba(107, 70, 193, 0.8),
+        0 0 20px rgba(0, 206, 209, 0.8);
+    -webkit-text-stroke: 1px black;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    background: linear-gradient(45deg, #6B46C1, #00CED1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: brightness(1.2);
+    animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #6B46C1, #00CED1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(15px) brightness(1.5);
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: 
+            0 0 7px #6B46C1,
+            0 0 10px #6B46C1,
+            0 0 21px #6B46C1,
+            0 0 42px #00CED1;
+    }
+    100% {
+        text-shadow: 
+            0 0 10px #6B46C1,
+            0 0 15px #6B46C1,
+            0 0 25px #6B46C1,
+            0 0 50px #00CED1;
+    }
+}
+
+@keyframes neonGlow {
+    0% {
+        filter: blur(15px) brightness(1.5);
+    }
+    100% {
+        filter: blur(20px) brightness(2);
+    }
+}
+
+.text-content {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.6;
+}
+
+.text-content p {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    line-height: 1.8;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    border-left: 4px solid var(--accent);
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+}
+
+.text-content p:hover {
+    transform: translateX(10px);
+    background: rgba(107, 70, 193, 0.3);
+}
+
+.text-content p:nth-child(1) { animation-delay: 0.2s; }
+.text-content p:nth-child(2) { animation-delay: 0.4s; }
+.text-content p:nth-child(3) { animation-delay: 0.6s; }
+.text-content p:nth-child(4) { animation-delay: 0.8s; }
+
+.text-content p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    background: rgba(26, 32, 44, 0.6);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+}
+
+.background-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.3;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: float 20s infinite ease-in-out;
+    opacity: 0.4;
+    mix-blend-mode: screen;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: float 15s infinite ease-in-out;
+}
+
+.shape1 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #FF1493, #9400D3);
+    top: -100px;
+    left: -100px;
+    animation-delay: -5s;
+}
+
+.shape2 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #4B0082, #8B008B);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -2s;
+}
+
+.shape3 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #9400D3, #4B0082);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -8s;
+}
+
+.shape4 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--accent), var(--primary-dark));
+    top: -50px;
+    right: 20%;
+    animation-delay: -3s;
+}
+
+.shape5 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(45deg, var(--primary-dark), var(--secondary));
+    bottom: 10%;
+    left: 10%;
+    animation-delay: -6s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, 50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, 100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, 50px) rotate(270deg);
+    }
+}
+
+.slide-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 0 20px rgba(107, 70, 193, 0.4);
+}
+
+/* Стили для снежинок */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.snowflake {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: auto;
+    animation: snowfall linear infinite;
+    will-change: transform;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Стили для кнопок навигации */
+.nav-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(107, 70, 193, 0.3);
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background: rgba(107, 70, 193, 0.8);
+}
+
+.prev-button {
+    left: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
+.navigation button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(107, 70, 193, 0.3);
+    border: 2px solid var(--accent);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.navigation button:hover {
+    background: rgba(107, 70, 193, 0.8);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(183, 148, 244, 0.5);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.dots {
+    position: absolute;
+    bottom: clamp(10px, 3vh, 30px);
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    z-index: 10;
+}
+
+.dot {
+    width: clamp(8px, 1.5vw, 12px);
+    height: clamp(8px, 1.5vw, 12px);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot:hover, .dot.active {
+    transform: scale(1.2);
+    background: var(--accent);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--primary-dark), var(--primary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-btn {
+    background: rgba(107, 70, 193, 0.3);
+    border: 2px solid var(--accent);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.lang-btn:hover {
+    background: rgba(107, 70, 193, 0.6);
+    transform: scale(1.1);
+}
+
+[lang="ru"] .lang-en {
+    display: none;
+}
+
+[lang="en"] .lang-ru {
+    display: none;
+}
+
+/* Стилизация активного слайда */
+.slide.active .content {
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Стили для слайда с поздравлениями */
+.celebration-content {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(107, 70, 193, 0.2), rgba(159, 122, 234, 0.3));
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(107, 70, 193, 0.3);
+}
+
+.celebration-text {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #B794F4;
+    margin: 1.5rem 0;
+    text-shadow: 0 0 10px rgba(183, 148, 244, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(183, 148, 244, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(183, 148, 244, 0.8),
+                     0 0 30px rgba(183, 148, 244, 0.6);
+    }
+}
+
+/* Обновленные стили для граффити текста */
+.graffiti-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    background: linear-gradient(45deg, #FFB6C1, #FF69B4, #DA70D6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 
+        2px 2px 2px rgba(255, 255, 255, 0.8),
+        -1px -1px 1px rgba(255, 255, 255, 0.8),
+        1px -1px 1px rgba(255, 255, 255, 0.8),
+        -1px 1px 1px rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    animation: softGlow 3s ease-in-out infinite alternate;
+}
+
+.graffiti-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 
+        2px 2px 2px rgba(0, 0, 0, 0.8),
+        -1px -1px 1px rgba(0, 0, 0, 0.8),
+        1px -1px 1px rgba(0, 0, 0, 0.8),
+        -1px 1px 1px rgba(0, 0, 0, 0.8);
+    margin: 1.5rem 0;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.graffiti-text:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.birthday-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(107, 70, 193, 0.6);
+}
+
+@keyframes softGlow {
+    from {
+        text-shadow: 
+            2px 2px 2px rgba(0, 0, 0, 0.8),
+            -1px -1px 1px rgba(0, 0, 0, 0.8),
+            1px -1px 1px rgba(0, 0, 0, 0.8),
+            -1px 1px 1px rgba(0, 0, 0, 0.8),
+            0 0 10px rgba(255, 182, 193, 0.5);
+    }
+    to {
+        text-shadow: 
+            2px 2px 2px rgba(0, 0, 0, 0.8),
+            -1px -1px 1px rgba(0, 0, 0, 0.8),
+            1px -1px 1px rgba(0, 0, 0, 0.8),
+            -1px 1px 1px rgba(0, 0, 0, 0.8),
+            0 0 20px rgba(218, 112, 214, 0.8);
+    }
+}
+
+/* Белый текст для последнего слайда */
+.graffiti-title {
+    color: #ffffff !important;
+    text-shadow: 
+        2px 2px 0 #ffffff,
+        -2px -2px 0 #ffffff,
+        2px -2px 0 #ffffff,
+        -2px 2px 0 #ffffff,
+        0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Стили для титульного слайда *//* Стили для кнопки управления музыкой */
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(107, 70, 193, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.music-toggle i {
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: rgba(107, 70, 193, 0.4);
+    transform: scale(1.1);
+}
+
+.music-toggle.muted i {
+    color: #ff4444;
+}
+.title-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #1a1a1a, #2d1a4a);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-title {
+    font-family: 'Rubik Spray Paint', cursive;
+    font-size: min(12vw, 8rem);
+    background: linear-gradient(45deg, #FFB6C1, #FF69B4, #DA70D6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+    text-shadow: none;
+    padding: 2rem;
+    margin: 0;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+@keyframes titleGlow {
+    from {
+        filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.5));
+    }
+    to {
+        filter: drop-shadow(0 0 40px rgba(218, 112, 214, 0.8));
+    }
+}
+
+/* Стили для первого слайда */
+.intro-slide {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    padding: clamp(1rem, 3vw, 3rem);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    width: min(90%, 800px);
+    margin: 2rem auto;
+    transform: translateY(clamp(10%, 20vh, 30%));
+}
+
+.intro-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.intro-content .text-content p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 768px) {
+    .intro-content {
+        width: 95%;
+        padding: 1.5rem;
+        transform: translateY(15%);
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .intro-content {
+        transform: translateY(5%);
+    }
+    
+    .intro-content h1 {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+    
+    .intro-content .text-content p {
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Оптимизация для разных устройств */
+@media (orientation: landscape) and (max-height: 500px) {
+    .main-title {
+        font-size: min(8vw, 6rem);
+    }
+    
+    .intro-content {
+        transform: translateY(2%);
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 2000px) {
+    .main-title {
+        font-size: min(10vw, 12rem);
+    }
+    
+    .intro-content {
+        max-width: 1200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+
+    .slide-content {
+        padding: 0 10px;
+    }
+
+    .navigation button {
+        padding: 15px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .text-content p {
+        font-size: clamp(0.8rem, 2vw, 1.4rem);
+        margin: clamp(0.5rem, 1.5vw, 1rem) 0;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+        margin-bottom: clamp(0.8rem, 2vw, 1.5rem);
+    }
+}

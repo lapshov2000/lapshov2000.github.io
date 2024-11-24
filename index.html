@@ -1,25 +1,356 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Voxels</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/Новая папка.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
-    <div class="webgl-content">
-      <div id="unityContainer" style="width: 960px; height: 600px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">Voxels</div>
-      </div>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Baby Tape Presentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Rubik+Marker+Hatch&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="snow-container"></div>
+    <div class="language-selector">
+        <button onclick="changeLanguage('ru')" class="lang-btn">RU</button>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
     </div>
-  </body>
+
+    <div class="container">
+        <div class="background-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+            <div class="shape shape3"></div>
+            <div class="shape shape4"></div>
+            <div class="shape shape5"></div>
+            <div class="shape shape6"></div>
+        </div>
+<!-- Титульный слайд -->
+<div class="slide">
+    <div class="content">
+        <div class="shape5">
+            <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg" alt="Big Baby Tape">
+        </div>
+        <h1 class="lang-ru">Big Baby Tape</h1>
+        <h1 class="lang-en">Big Baby Tape</h1>
+        <div class="slide-content">
+            <p class="lang-ru">Российский рэпер и продюсер</p>
+            <p class="lang-ru">Основатель лейбла "Tape Music"</p>
+            <p class="lang-en">Russian rapper and producer</p>
+            <p class="lang-en">Founder of "Tape Music" label</p>
+        </div>
+    </div>
+</div>
+        <!-- Слайд 1: Начало пути -->
+        <div class="slide">
+            <div class="content">
+                <div class="artist-image">
+                    <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg" alt="Big Baby Tape"
+                        class="main-image">
+                </div>
+                <h1 class="lang-ru" data-text="Начало пути 🎭">Начало пути 🎭</h1>
+                <h1 class="lang-en" data-text="The Beginning 🎭">The Beginning 🎭</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Егор Ракитин, известный как Big Baby Tape, родился 5 января 2000 года в Москве. Его путь в
+                            музыке начался в раннем детстве – уже в 5 лет он проявлял интерес к хип-хоп культуре.</p>
+                        <p>В 13 лет начал писать первые тексты и экспериментировать с битами. Первые треки записывал под
+                            псевдонимом BJORK, вдохновляясь американской трэп-сценой и классическим хип-хопом.</p>
+                        <p>Интересный факт: в школе Егор учил английский именно через рэп, переводя тексты любимых
+                            исполнителей. Это помогло ему развить уникальный стиль, где русские и английские фразы
+                            органично переплетаются. К 15 годам уже имел домашнюю студию, где записывал свои первые серьезные работы. Первый
+                            микрофон купил на деньги от продажи своих кроссовок Nike Air Max.</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Egor Rakitin, known as Big Baby Tape, was born on January 5, 2000, in Moscow. His musical
+                            journey began in early childhood – at age 5, he was already showing interest in hip-hop
+                            culture.</p>
+                        <p>At 13, he started writing his first lyrics and experimenting with beats. He recorded his
+                            first tracks under the alias BJORK, drawing inspiration from the American trap scene and
+                            classic hip-hop.</p>
+                        <p>Fun fact: in school, Egor learned English through rap by translating lyrics of his favorite
+                            artists. This helped him develop a unique style where Russian and English phrases blend
+                            naturally.</p>
+                        <p>By age 15, he had a home studio where he recorded his first serious works. He bought his
+                            first microphone with money from selling his Nike Air Max sneakers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 2: Становление -->
+        <div class="slide">
+            <div class="content">
+                <div class="artist-image">
+                    <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg" alt="Big Baby Tape Success"
+                        class="main-image">
+                </div>
+                <h1 class="lang-ru" data-text="Путь к успеху 🚀">Путь к успеху 🚀</h1>
+                <h1 class="lang-en" data-text="Road to Success 🚀">Road to Success 🚀</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>2016 год стал переломным – Big Baby Tape начал активно выпускать треки на SoundCloud,
+                            экспериментируя с различными стилями и звучанием. Его уникальный подход к музыке быстро
+                            привлек внимание андеграундной сцены. В 2018 году выпустил трек "Trap Luv", который стал вирусным и набрал миллионы прослушиваний.
+                            В том же году основал собственный лейбл "Benzo Gang", ставший площадкой для развития новых
+                            талантов.</p>
+                        <p>Дебютный альбом "Dragonborn" вышел в ноябре 2018 года и мгновенно стал хитом, попав на
+                            вершины чартов. Альбом отличался уникальным звучанием, смешивая элементы трэпа, клауд-рэпа и
+                            классического хип-хопа. Интересный факт: все биты для альбома "Dragonborn" были созданы самим артистом в его домашней
+                            студии, где он часто работает в полной темноте для лучшей концентрации.</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>2016 was a turning point – Big Baby Tape started actively releasing tracks on SoundCloud,
+                            experimenting with different styles and sounds. His unique approach to music quickly caught
+                            the attention of the underground scene.</p>
+                        <p>In 2018, he released "Trap Luv", which went viral and gained millions of plays. That same
+                            year, he founded his own label "Benzo Gang", which became a platform for developing new
+                            talents.</p>
+                        <p>His debut album "Dragonborn" was released in November 2018 and instantly became a hit,
+                            topping the charts. The album featured a unique sound, mixing elements of trap, cloud rap,
+                            and classic hip-hop.</p>
+                        <p>Fun fact: all beats for the "Dragonborn" album were created by the artist himself in his home
+                            studio, where he often works in complete darkness for better concentration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 3: Стиль -->
+        <div class="slide">
+            <div class="content">
+                <div class="artist-image">
+                    <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg"
+                        alt="Big Baby Tape Style" class="main-image">
+                </div>
+                <h1 class="lang-ru" data-text="Уникальный стиль 🎨">Уникальный стиль 🎨</h1>
+                <h1 class="lang-en" data-text="Unique Style 🎨">Unique Style 🎨</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Стиль Big Baby Tape – это уникальное сочетание современного трэпа с элементами классического
+                            хип-хопа. Его музыка отличается мощными басами, сложными флоу и креативными панчлайнами,
+                            часто использующими отсылки к поп-культуре.</p>
+                        <p>В своих треках он умело смешивает русский и английский языки, создавая неповторимый
+                            билингвальный флоу. Интересный факт: для создания некоторых звуков в своих битах использует необычные источники,
+                            например, записи природных явлений или индустриальные шумы.</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Big Baby Tape's style is a unique blend of modern trap with elements of classic hip-hop. His
+                            music features powerful bass lines, complex flows, and creative punchlines often referencing
+                            pop culture.</p>
+                        <p>In his tracks, he skillfully mixes Russian and English, creating a unique bilingual flow. His
+                            production often includes elements of electronic music, jazz, and even classical
+                            compositions.</p>
+                        <p>Fun fact: he uses unusual sources for creating sounds in his beats, such as recordings of
+                            natural phenomena or industrial noises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайды с изображениями -->
+        <div class="slide" data-lang="ru">
+            <div class="slide-content">
+                <div class="fullscreen-image">
+                    <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg" alt="Big Baby Tape 1"
+                        class="full-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 4: Достижения -->
+        <div class="slide">
+            <div class="content">
+                <div class="artist-image">
+                    <img src="https://i.ytimg.com/vi/veEnTylLXBo/maxresdefault.jpg" alt="Big Baby Tape">
+                </div>
+                <h1 class="lang-ru">Достижения 🏆</h1>
+                <h1 class="lang-en">Achievements 🏆</h1>
+                <div class="slide-content">
+                    <p class="lang-ru">• Платиновые альбомы: Dragonborn и Bandana</p>
+                    <p class="lang-ru">• Миллионы прослушиваний на стриминг-платформах</p>
+                    <p class="lang-ru">• Успешные коллаборации с топовыми артистами</p>
+                    <p class="lang-en">• Platinum albums: Dragonborn and Bandana</p>
+                    <p class="lang-en">• Millions of streams on platforms</p>
+                    <p class="lang-en">• Successful collaborations with top artists</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-lang="ru">
+            <div class="slide-content">
+                <div class="fullscreen-image">
+                    <img src="https://the-flow.ru/uploads/images/resize/830x0/adaptiveResize/03/61/91/27/18/c974c7e40cd7.jpg"
+                        alt="Big Baby Tape 2" class="full-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 5: Влияние -->
+        <div class="slide">
+            <div class="content">
+                <div class="artist-image">
+                    <img src="https://i1.sndcdn.com/artworks-z1yy7xGYB3zLZHNT-sE9JaA-t500x500.jpg"
+                        alt="Big Baby Tape Influence" class="main-image">
+                </div>
+                <h1 class="lang-ru" data-text="Влияние на культуру 🌟">Влияние на культуру 🌟</h1>
+                <h1 class="lang-en" data-text="Cultural Impact 🌟">Cultural Impact 🌟</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Big Baby Tape стал одним из пионеров новой волны российского трэпа, повлияв на целое
+                            поколение молодых артистов. Его уникальный стиль микширования языков и продакшена стал
+                            образцом для подражания.</p>
+                        <p>Через свой лейбл "Benzo Gang" помогает развиваться новым артистам, предоставляя им площадку
+                            для творчества и профессионального роста. Многие его подопечные уже добились успеха в
+                            индустрии.</p>
+                        <p>Активно участвует в развитии хип-хоп культуры, проводит мастер-классы по музыкальному
+                            продакшену и организует фестивали, объединяющие артистов разных стилей.</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Big Baby Tape became one of the pioneers of the new wave of Russian trap, influencing a whole
+                            generation of young artists. His unique style of mixing languages and production became a
+                            role model.</p>
+                        <p>Through his label "Benzo Gang", he helps new artists develop by providing them with a
+                            platform for creativity and professional growth. Many of his proteges have already achieved
+                            success in the industry.</p>
+                        <p>Actively participates in developing hip-hop culture, conducts masterclasses in music
+                            production, and organizes festivals that unite artists of different styles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 6: Продакшн -->
+        <div class="slide">
+            <div class="content">
+                <h1 class="lang-ru">Продюсирование 🎼</h1>
+                <h1 class="lang-en">Production 🎼</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Создает биты самостоятельно</p>
+                        <p>Использует винтажные синтезаторы</p>
+                        <p>Экспериментирует со звуком</p>
+                        <p>Fun fact: может создать бит за 15 минут ⚡</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Creates beats independently</p>
+                        <p>Uses vintage synthesizers</p>
+                        <p>Experiments with sound</p>
+                        <p>Fun fact: can create a beat in 15 minutes ⚡</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-lang="ru">
+            <div class="slide-content">
+                <div class="fullscreen-image">
+                    <img src="https://i.ytimg.com/vi/Ml-fk8CmK8U/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgVChNMA8=&rs=AOn4CLBOK26OSEsfdBy7ThgHWQXuJfOTfg"
+                        alt="Big Baby Tape 3" class="full-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 7: Коллаборации -->
+        <div class="slide">
+            <div class="content">
+                <h1 class="lang-ru">Совместные работы 🤝</h1>
+                <h1 class="lang-en">Collaborations 🤝</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Работа с российскими и зарубежными артистами</p>
+                        <p>Создание международных проектов</p>
+                        <p>Продюсирование других исполнителей</p>
+                        <p>Fun fact: записал трек с кумиром детства 🌟</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Work with Russian and foreign artists</p>
+                        <p>Creating international projects</p>
+                        <p>Producing other artists</p>
+                        <p>Fun fact: recorded track with childhood idol 🌟</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Слайд 8: Будущее -->
+        <div class="slide">
+            <div class="content">
+                <h1 class="lang-ru">Планы на будущее 🎯</h1>
+                <h1 class="lang-en">Future Plans 🎯</h1>
+                <div class="slide-content">
+                    <div class="text-content lang-ru">
+                        <p>Развитие собственного лейбла</p>
+                        <p>Международные туры</p>
+                        <p>Новые музыкальные эксперименты</p>
+                        <p>Fun fact: мечтает открыть музыкальную школу 🎓</p>
+                    </div>
+                    <div class="text-content lang-en">
+                        <p>Developing own label</p>
+                        <p>International tours</p>
+                        <p>New musical experiments</p>
+                        <p>Fun fact: dreams of opening music school 🎓</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Слайд 9: Поздравление и пожелания -->
+        <div class="slide" data-lang="ru">
+            <div class="slide-content">
+                <h1 class="graffiti-title">С Днем Рождения! 🎉</h1>
+                <div class="birthday-message">
+                    <p class="graffiti-text">Вика, поздравляем тебя с днем рождения! 🎂</p>
+                    <p class="graffiti-text">Макс-обезьяна, с праздником вас! 🐒</p>
+                    <p class="graffiti-text">Желаю чувствовать себя счастливым каждый день! 🎈</p>
+                </div>
+            </div>
+        </div>
+        <!-- Финальное изображение -->
+<div class="slide" data-lang="ru">
+    <div class="slide-content">
+        <div class="mon-image ">
+            <img src="https://64.media.tumblr.com/1f195a0a21faf2dc45b3423c18fc34bc/tumblr_oo9oq8uluz1ud5qxgo1_640.jpg" alt="Final Image" class="full-img231">
+        </div>
+    </div>
+</div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="Big Baby Tape - Surname (FFM Remix) .mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="musicToggle" class="music-toggle">
+        <i class="fas fa-volume-up"></i>
+    </button>
+
+    <div class="navigation">
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+        <span class="dot" onclick="currentSlide(10)"></span>
+        <span class="dot" onclick="currentSlide(11)"></span>
+        <span class="dot" onclick="currentSlide(12)"></span>
+        <span class="dot" onclick="currentSlide(13)"></span>
+        <span class="dot" onclick="currentSlide(14)"></span>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
